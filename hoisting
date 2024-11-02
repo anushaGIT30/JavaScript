@@ -1,0 +1,4 @@
+hoisting is of 2 types 
+1. function hoisting
+2. variable hoisting 
+Hoisting is the default behaviour of javascript where all the variables and functions declarations are moved on top.

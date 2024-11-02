@@ -1,0 +1,30 @@
+TEMPORAL DEAD ZONE
+
+The Temporal Dead Zone (TDZ) in JavaScript is the period between entering a scope (like a block or function) and the point where a variable declared with let or const is initialized. During this period, the variable exists but cannot be accessed—attempting to do so results in a ReferenceError.
+
+Here's a breakdown of how it works:
+
+Temporal Dead Zone begins when the block or function is entered, and the variable is hoisted (made known to the compiler).
+The variable is in the TDZ until it is initialized, usually when the declaration line (let or const) is encountered.
+Attempting to access the variable during the TDZ results in a ReferenceError.
+Example of Temporal Dead Zone
+javascript
+Copy code
+console.log(myVar); // ReferenceError: Cannot access 'myVar' before initialization
+let myVar = 10;
+console.log(myVar); // 10
+In this code:
+
+The variable myVar is in the TDZ from the start of the script until the line let myVar = 10;.
+Attempting to log myVar before its declaration results in a ReferenceError.
+Key Points
+TDZ only applies to variables declared with let and const. var declarations are hoisted and initialized to undefined, so they don’t have a TDZ.
+Purpose of TDZ: TDZ helps prevent errors by ensuring variables declared with let and const are not accessible before they are declared, which encourages better coding practices and helps avoid bugs.
+Block Scope and TDZ Example
+javascript
+Copy code
+{
+    console.log(myConst); // ReferenceError: Cannot access 'myConst' before initialization
+    const myConst = 20;
+}
+In this example, myConst is in the TDZ within the block scope { ... } until the const declaration. Accessing it before the declaration line throws an error.

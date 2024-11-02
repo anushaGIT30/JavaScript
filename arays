@@ -1,0 +1,17 @@
+push : Adds an item to the end of the array.
+unshift : Adds an item to the beginning of the array.
+pop : Removes the last item from the array.
+shift : Removes the first item from the array.
+splice:The splice method adds or removes elements from an array at a specified index.
+map:The map function in JavaScript is a built-in array method that allows you to transform each element in an array and create a new array with the transformed values.
+ The original array remains unchanged.
+ filter: The filter function in JavaScript is a built-in array method that lets you create a new array containing only the elements that match a certain condition.
+  It’s often used to filter out elements that don’t meet specific criteria.
+  reduce: 
+  it consists of accumulator: it by default takes first element or otherwise we can give the value
+   and current value: if we donot initilialize it will take next value of accumulator or we can also give values
+  The reduce function in JavaScript is a powerful array method used to accumulate or combine array elements into a single
+   value, such as a sum, a product, or even an object
+
+   sort: used to sort
+

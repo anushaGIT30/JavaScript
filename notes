@@ -1,0 +1,50 @@
+we have 2 types of datatypes in js
+1. primitive datatypes: these datatypes are stored in stack memory
+--> copied by value, and immutable.
+-->Primitive types are basic data types that store simple values.
+They are immutable, meaning their values cannot be altered after they are created.
+JavaScript has six primitive types:
+. number
+. strings
+. boolean
+. undefined
+. null
+Characteristics of Primitive Types:
+Stored in stack memory: This means each variable has a unique memory location.
+Copied by value: When you assign a primitive type to another variable, a copy of the value is made, so changing
+one does not affect the other.
+
+2.Reference datatypes:Reference types store references to memory locations where data is stored, rather than the data
+itself.
+Common reference types include:
+. Objects: { name: "Mayank" }
+. Arrays: [1, 2, 3]
+. Functions: function() { ... }
+
+Characteristics of Reference Types:
+Stored in heap memory: The variable holds a reference (pointer) to the memory location.
+Copied by reference: When you assign a reference type to another variable,
+both variables point to the same memory location. Changes to one will affect the other.
+
+1. Mutable
+Mutable data can be modified or changed after it’s created. This means that if you change part of a mutable data
+structure, it will reflect the new state directly, without needing to create a new copy.
+
+Examples of Mutable Data Types in JavaScript
+Objects: e.g., { name: "Alice" }
+Arrays: e.g., [1, 2, 3]
+Example of Mutability:
+javascript
+Copy code
+let person = { name: "Alice" };
+person.name = "Bob"; // Modifies the existing object
+
+console.log(person); // Output: { name: "Bob" }
+In this example, the person object’s name property was changed from "Alice" to "Bob", which modified the object itself.
+
+2. Immutable
+Immutable data cannot be changed once it’s created. Any modification to immutable data will result in the creation of a
+new copy, leaving the original data unchanged.
+
+Examples of Immutable Data Types in JavaScript
+Primitive types: Numbers, Strings, Booleans, null, undefined, Symbols
