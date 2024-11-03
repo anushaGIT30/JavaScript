@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="fdiv" style="background-color: aqua ; padding:2rem">
+        first div
+        <p id="fpara" style="background-color: green; padding:1rem" class="firstclass Secondclass ">this is a first para
+        </p>
+        <div id="sdiv" style="background-color: orange ; padding:2px">second div
+            <p id="spara" style="background-color: yellow; padding:2px">this is a second para</p>
+        </div>
+    </div>
+    <script>
+        let element = document.getElementById("spara");
+        //console.log(element.style);
+        element.style.backgroundColor = "blue";
+        //it is applicable for only element 
+        //to use for multiple we use .cssText by uisng this we can get or set multiple inline properties
+        let secondElement = document.getElementById("sdiv");
+        //get 
+        secondElement.style.cssText;
+        //set 
+        secondElement.style.cssText = "background-color:red; color:white;padding:0.5rem";
+        //we can also update by using :
+        let firstElement = document.querySelector("#fdiv");
+        //we can set a class set attribute 
+        firstElement.setAttribute('class', 'divclass');
+        firstElement.setAttribute('class', 'secondDivclass');
+        firstElement.setAttribute('style', "background-color:purple");//this attribute set the new color purple
+        firstElement.setAttribute('style', "border:2rem");
+        //next if we want to insert class or multiple classess we can use this method
+        //  let fpara1 = document.getElementsByClassName("ak");
+        //get
+        //  fpara1.ClassName = "anusha", "bubu";
+        //the last method is .classList-add,remove,toggle,contains
+
+        let fpara = document.querySelector('#fpara');
+        fpara.classList.add('thirdclass');
+        //summary of the methods are: .style,.cssText,.setAttribute,.className,.classList
+    </script>
+</body>
+
+</html>

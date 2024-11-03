@@ -1,0 +1,7 @@
+BROWSER EVENTS:
+event: it is like an announcement (for the attention)
+in any websitee if we want to see the events we use monitorEvent(document)
+
+**event-target:
+the synatx is:
+<eventTarget>.addEventListner(<event-type>,<function-action>)

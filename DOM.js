@@ -21,5 +21,21 @@
 //3.text-content
 //4.inner text
 
+//to add an element
+//1.first we have to create a child the method used to create a child is "create element"
+//2.append
+//ex:let element = document.querySelector('#div1');
+let fhead = document.createElement('h2'); // Create the h2 element
+fhead.textContent = "my name is anu";      // Set text content of the h2 element
+let bodyTag = document.querySelector("body"); // Select the body tag
+bodyTag.appendChild(fhead);               // Append the h2 element to the body
 
+//we can decide the child where we want to place it
+//the method is "insertAdjacentElement"
+//it consists of 2 parameters
+//(1)position: before begin,after begin,before end,after end
+//(2)html content
+//ex: parent.insertAdjacentElement()
 
+//to remove an element
+parent.removeChild()

@@ -1,0 +1,60 @@
+<!--1. innerHTML
+Purpose: Allows you to get or set the HTML content inside an element.
+
+Usage:
+
+Getting Content: Retrieves the HTML content between the opening and closing tags of the selected element.
+Setting Content: Replaces the inner content of the element with new HTML.
+-->
+
+<!--2. outerHTML
+Purpose: Allows you to get or set the HTML content of an element itself, including the element's own tags.
+
+Usage:
+
+Getting Content: Retrieves the entire HTML of the element, including the element itself and its children.
+Setting Content: Replaces the element itself with the new HTML content.-->
+
+<!--3. innerText:
+it displays whatever it displays on the browser with nextline
+Purpose: Retrieves or sets the visible text content of an element, taking into account styling and layout (e.g., hidden elements are ignored). innerText is aware of CSS, so it respects styles like display: none or visibility: hidden.
+
+Usage:
+
+Getting Content: Retrieves only the visible text within the element.
+Setting Content: Replaces the visible text content of the element, and layout is updated accordingly.
+
+-->
+
+<!-- 4. textContent
+Purpose: Retrieves or sets the text content of an element and all its children, ignoring any HTML tags or styling. It includes all text within the element, regardless of visibility (hidden text is included).
+
+Usage:
+
+Getting Content: Retrieves the raw text content of the element and its descendants.
+Setting Content: Replaces the text content of the element, including all child elements, with the specified text.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p>1.this is a paragraph
+            <span>Text</span>
+        </p>
+        <p>2.this is a 2nd paragraph</p>
+    </div>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
