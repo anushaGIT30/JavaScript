@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Example</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            margin-top: 12px;
+            padding: 8px 12px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML Form -->
+    <h2>Simple Form with GET and POST Simulation</h2>
+
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required min="1">
+
+        <label for="method">Select Method:</label>
+        <select id="method" name="method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        // JavaScript for handling form submission
+        document.getElementById('userForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const method = document.getElementById('method').value;
+            const result = document.getElementById('result');
+
+            // Clear previous result
+            result.textContent = '';
+
+            if (method === 'GET') {
+                // Simulate a GET request by creating a URL with query parameters
+                const url = `http://example.com/?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&age=${encodeURIComponent(age)}`;
+                result.textContent = `GET Request URL: ${url}`;
+            } else if (method === 'POST') {
+                // Simulate a POST request by displaying the data
+                result.textContent = `POST Request Data:\nName: ${name}\nEmail: ${email}\nAge: ${age}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

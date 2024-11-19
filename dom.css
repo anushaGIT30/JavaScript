@@ -1,0 +1,23 @@
+h1 {
+    color: blueviolet;
+}
+
+h3 {
+    color: brown;
+}
+
+form #name {
+    color: rgb(108, 19, 217);
+}
+
+#rollno {
+    color: rgb(43, 4, 32);
+}
+
+#email {
+    color: red;
+}
+
+body {
+    background-color: plum;
+}

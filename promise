@@ -1,0 +1,22 @@
+In JavaScript, a promise is a special type of object that helps manage tasks that take some time to complete,
+ like loading data from the internet or processing a file. 
+ Think of a promise like a "to-do" list for JavaScript:
+
+Pending - The promise is waiting for the task to finish. It's like adding a task to your list and not yet knowing the outcome.
+Fulfilled - The task finished successfully, and the promise has the result. It’s like checking off the task as done.
+Rejected - The task didn’t go as planned, and there's an error. It’s like noting that something went wrong.
+Promises make it easier to handle actions that take time, allowing JavaScript to keep working on other tasks while it waits. Once the promise is resolved (fulfilled or rejected), you can use the result or handle any error that occurred.
+
+**it handles the asynchronous operations
+
+-->This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.
+
+it consists of 2 parameters
+1.resolve/fulfilled
+2.reject
+syntax: new promise((resolve,reject)=>{
+
+})
+
+for fulfilled we use - then()
+for reject- catch()

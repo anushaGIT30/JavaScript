@@ -1,0 +1,19 @@
+In web development, GET and POST are two commonly used HTTP methods for sending data between a client (such as a web browser) and a server.
+
+GET Method
+Purpose: The GET method is used to retrieve data from a server.
+Data Transmission: Data is sent as part of the URL. For example, submitting a form with the GET method might create a URL like http://example.com/form?name=John&age=25.
+Visibility: Data sent via GET is visible in the URL, making it less secure for sensitive information (like passwords).
+Caching: GET requests can be cached by the browser, allowing faster access to previously loaded pages.
+Use Cases: Typically used for fetching data without changing the state of the server. It’s commonly used for search queries or retrieving public data from a website.
+POST Method
+Purpose: The POST method is used to send data to the server to create or update resources.
+Data Transmission: Data is sent in the body of the HTTP request, not in the URL, making it more secure and suitable for sensitive information.
+Visibility: Since data is not visible in the URL, it’s generally more private and secure for transmitting sensitive data.
+Caching: POST requests are usually not cached by the browser.
+Use Cases: Used for submitting data that needs to be processed by the server, such as logging in, creating a user account, or submitting a form with private details.
+Summary
+Method	Purpose	Data Location	Visibility	Caching	Use Cases
+GET	Retrieve data	URL	Visible in URL	Often cached	Fetching public data, searches
+POST	Send data to create/update	HTTP body	Not visible in URL	Not cached	Submitting forms, login details
+
