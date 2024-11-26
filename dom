@@ -1,0 +1,8 @@
+dom stands for document object model 
+--the html can be  accessed in the javascript with the help of window object inside this window object there is a 
+ document here the document is the representation of html code
+ -it is a tree like structure 
+ --when a webpage is loaded the browser creates a dom
+
+ --window is an object which is automatically created by the browser
+ 
