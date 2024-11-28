@@ -1,0 +1,46 @@
+hi this is AJAX
+
+METHODS:
+1.newXMLHttpRequest() - creates a new newXMLHttpRequest object
+
+2. open(method,url,async,user,pswd) - specifies the request 
+                                      here method-the request type get or post
+                                      url: the file location
+                                      async: true (asynchronous) false (synchronous)
+                                      user: optional username
+                                      pswd: password
+
+3. send ()               -  sends the request to the server used for get request 
+
+4. send(string)()       -  sends the request to the server used for post request
+
+5. setRequestHeader()   -  adds a label /value pair to the header to be sent
+
+6. abort()             -  cancels the currrent request 
+
+7. getAllResponseHeaders() - returns header information
+
+
+THE PROPERTIES THAT ARE USED FOR THESE OBJECTS ARE
+
+1. onload      -- when the request is complete  and the response is fully downloaded
+
+2. onreadystatechange -- defines a function to be called when the ready state property changes
+
+3. onprogress --- triggers periodically while the response is downloaded ,and reports how much has been downloaded
+
+4. readyState -- holds the status of the    XMLHttpRequest
+                 0:request not initialized
+                 1:server connection established
+                 3: processing request
+                 4: request finished and response is ready
+
+5. responseText -- returns the response data as a string 
+
+6. responseXML -- returns the response data as a xml 
+
+7. status  -- returns the status -number of a request 
+              200: OK
+              403 :"forbidden"
+              404:"NOT FOUND"
+8.statusText -- returns the status text ("OK" OR "NOT FOUND")

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //reduce(function,accumulator default value)
+        //arr.reduce(function(acc,ele,idx,arr))
+        //returns a single value
+        let arr = [345, 1234, 657, 6678, 12, 111];
+        let max = arr.reduce(function (acc, num) {
+            if (acc > num)
+                return acc;
+            else
+                return num;
+
+        }, arr[0])
+        console.log(max);
+    </script>
+</body>
+
+</html>

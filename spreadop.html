@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [12, 11, 23, 445, 87, 97];
+        let arr2 = [11, 34, 65, 99]
+        let arr3 = [...arr1, ...arr2]//expands or seperates each element
+        //console.log(arr3);
+        let s = "javas6788rtyucript";
+        //console.log(...s);
+        //we can also used in functions
+        function add(a, b, c, d) {
+            return a + b + c + d;
+        }
+        console.log(add(...arr2));
+    </script>
+</body>
+
+</html>

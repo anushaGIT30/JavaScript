@@ -5,7 +5,7 @@ function init() {
     function displayName() {
         // displayName() is the inner function, that forms a closure
         console.log(name); // use variable declared in the parent function
-    }
+    }//accessing variables of a function even its execution completes
     displayName();
 }
 init();

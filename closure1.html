@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <style>
+        body {
+            display: flex;
+
+            justify-content: center;
+        }
+
+        #para {
+            color: green;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" onclick="update1()">Click Me</button><br><br>
+    <p id="para">clicked: 0</p><br><br>
+</body>
+<script>
+    function update() {
+        let count = 0;
+        function updateCount() {
+            if (count >= 3) {
+                alert("Closed temporarily try after some time");
+                return; // Stop further execution if count exceeds the limit
+            }
+            count = count + 1;
+            let p = document.getElementById('para');
+            p.innerText = `clicked: ${count}`;
+        }
+        return updateCount;
+    }
+
+    let update1 = update(); // Initialize the closure
+</script>
+
+</html>

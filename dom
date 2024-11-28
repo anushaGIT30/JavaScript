@@ -5,4 +5,21 @@ dom stands for document object model
  --when a webpage is loaded the browser creates a dom
 
  --window is an object which is automatically created by the browser
- 
+ DOM MANIPULATION:
+ 1.selecting with id:
+ document.getElementById("myid")
+ 2.selecting with class:
+ document.getElementByClassName("myClass")
+ 3.selecting with tag:
+ document.getElementBytagName("p")
+
+ ANOTHER EFFICIENT WAY IS
+ document.querySelector("myId/myClass/tag")
+ document.querySelectorAll("myId/myClass/tag")
+
+ ----DOM PROPERTIES : BY USING THIS PROPERTIES WE CAN GET OR SET THE HTML ELEMENTS 
+ 1.tagName: returns tagName  for element nodes
+ 2.innerText: returns the text content of the elemetns and all its children
+ 3.innerHTML:returns the plain text or html contents in the element
+ 4.textContent:returns textual content even for hidden elements
+

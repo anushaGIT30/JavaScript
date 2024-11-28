@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Example</title>
+</head>
+
+<body>
+    <script>
+        let sal = 2;
+
+        function getsal(a, b) {
+            console.log(a); // Logs the value of the first argument
+            console.log(this.sal); // Logs the 'sal' property of the bound object
+            console.log(b); // Logs the value of the second argument
+        }
+
+        let e = {
+            sal: 20
+        };
+
+        let e1 = {
+            sal: 30
+        };
+
+        // Bind 'e' as 'this' and partially apply arguments 33 and 44
+        let boundGetSal = getsal.bind(e, 33, 44);
+
+        // Call the bound function
+        boundGetSal();
+    </script>
+</body>
+
+</html>

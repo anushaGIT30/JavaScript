@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //higher order functions are the functions that receives another function as an argument or return another function or both
+        let arr = [1, 2, 3, 4, 5, 6];
+        function square(num) {
+            return num * num;
+        }
+        function cube(num) {
+            return num * num * num;
+        }
+        function op(arr, operation) {
+            let res = [];
+            for (ele of arr) {
+                res.push(operation(ele))
+
+
+            }
+            return res;
+        }
+        let x = op(arr, square);
+        console.log(x);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10%;
+        }
+
+        #movie {
+            background-color: blueviolet;
+            height: 50px;
+            width: 100px;
+            border: 4px solid rgb(40, 18, 3);
+            color: rgb(223, 214, 208);
+            border-radius: 2px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        #mov {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="movie">
+        Movie
+    </button>
+    <div id="mov"></div>
+    <script>
+        let btn = document.getElementById('movie');
+        let eledata = document.getElementById('mov');
+
+        btn.addEventListener('click', loadData);
+
+        function loadData() {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'ajax.json', true);
+            xhr.send();
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    let result = JSON.parse(xhr.responseText);
+
+                    // Check if result is an array
+                    if (Array.isArray(result)) {
+                        let str = `<table><tr>`;
+
+                        // Create table headers
+                        for (let key in result[0]) {
+                            str += `<th>${key}</th>`;
+                        }
+                        str += `</tr>`;
+
+                        // Add table rows
+                        result.forEach(item => {
+                            str += `<tr>`;
+                            for (let key in item) {
+                                str += `<td>${item[key]}</td>`;
+                            }
+                            str += `</tr>`;
+                        });
+
+                        str += `</table>`;
+                        eledata.innerHTML = str;
+                    } else {
+                        eledata.innerHTML = "Error: Expected JSON array.";
+                    }
+                } else {
+                    eledata.innerHTML = `Error: Unable to fetch data. Status ${xhr.status}`;
+                }
+            };
+
+            xhr.onerror = function () {
+                eledata.innerHTML = "Error: Network issue, please try again.";
+            };
+        }
+    </script>
+</body>
+
+</html>

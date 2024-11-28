@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Background</title>
+    <style>
+        #special {
+            color: rgb(199, 70, 10);
+            display: flex;
+            font-style: italic;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 500px;
+            margin: auto;
+        }
+
+        #bg {
+            background-color: yellowgreen;
+        }
+
+        #but {
+            background-color: cadetblue;
+        }
+
+        #pfirst {
+            color: rgb(188, 188, 198);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: darkmagenta;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="special">
+        Name: <input type="text" id="name"><br><br>
+        <input type="button" id="bg" value="Change Background"
+            onclick="document.body.style.backgroundColor='green'"><br><br>
+        <button id="but">Click Here</button>
+        <p id="pfirst">The Background is Changed</p>
+    </div>
+
+    <script>
+        function change() {
+            let btn = document.getElementById('but');
+            // Assigning a regular function to the button's onclick
+            btn.onclick = function () {
+                document.body.style.backgroundColor = "red";
+            };
+        }
+
+        // Call the change() function to assign the behavior when the page loads
+        //second way to add event listerners
+
+        change();
+
+
+
+        let para = document.getElementById('pfirst');
+
+        // Fix: The event name 'click' should be in quotes.
+        para.addEventListener("click", change1);
+
+        function change1() {
+            para.style.backgroundColor = 'yellow';
+        }
+
+    </script>
+</body>
+
+</html>

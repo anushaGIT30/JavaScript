@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let birthYears = [2000, 2001, 2002, 2003, 2004];
+        let ages = birthYears.map(function (ele, index, arr) {
+            let age = 2024 - ele;
+            return age;
+        })
+        console.table(ages)
+        let fruits = ["apple", "banana", "grapes", "guava"]
+        let fruits1 = fruits.map(fruitsValues)
+        function fruitsValues(val) {
+            return val;
+
+        }
+        console.log(fruits1)
+        console.table(fruits1)
+    </script>
+</body>
+
+</html>

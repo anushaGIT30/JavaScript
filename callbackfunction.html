@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //callback function is a function which is passed as an argument to the another function 
+        function add(a, b, c) {
+            console.log(a + b + c)
+        }
+        function product(c, d) {
+            console.log(a * b)
+        }
+        function div(e, f) {
+            console.log(b / a);
+        }
+        function cal(val1, val2, val3, op) {
+            op(val1, val2, val3)
+
+        }
+        cal(2, 5, 6, add)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            border: 1px solid black;
+            align-items: center;
+
+
+        }
+
+        #special {
+            background: rgb(113, 113, 239);
+        }
+
+        #data {
+            color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="special" value="get-data" onclick=""> submit data</button><br><br>
+    <div id="data">
+
+    </div>
+    <script>
+        //AJAX: stands for Asynchronous Javascript and XML
+        //AJAX helps in fetching data Asynchronously from a remote web sever
+        //data loaded by AJAX call is done asynchronously without page refresh
+        //web sever will send response which contains data that we have requested
+        //daata can be any forms XML OR JSON
+        //initially servers send data in the form of xml and now json is more famous
+        //In js we have to use "XMLHttpRequest" object to make Ajax call
+        //AJAX request can be send to server in 3 steps
+        //1.Create XMLHttpRequest object
+        //2. create a request with that object open() method -open(method,url,async,username,password)
+        //3.Send the request using Send() method 
+        let btn = document.getElementById("special");
+        let dataele = document.getElementById("data");
+        btn.addEventListener('click', loadData);
+        function loadData() {//object creation
+            let xhr = new XMLHttpRequest();//it is a predefined function 
+            //now we are creating a request
+            xhr.open('get', 'ajax1.txt', true);//open takes 5 arguments but 3 are manditory 
+            xhr.send()//sending a request
+            xhr.onprogress = function () {//onprogress event will happen till the response we get from the server
+                dataele.innerText = "Loading..."
+            }
+            xhr.onload = function () {
+                dataele.innerText = xhr.responseText //responseText is a property
+            }
+        }
+    </script>
+</body>
+
+</html>

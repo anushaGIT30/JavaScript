@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info Fetch</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10%;
+        }
+
+        #movie {
+            background-color: blueviolet;
+            height: 50px;
+            width: 150px;
+            border: 4px solid rgb(40, 18, 3);
+            color: rgb(223, 214, 208);
+            border-radius: 2px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        #mov {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        .neighboring-countries {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="cname" placeholder="Enter any country name"><br><br>
+    <button id="movie">
+        Get Country Info
+    </button>
+    <div id="mov"></div>
+
+    <script>
+        let btn = document.getElementById('movie');
+        let eledata = document.getElementById('mov');
+        let cname = document.getElementById('cname');
+
+        btn.addEventListener('click', loadData);
+
+        function loadData() {
+            if (cname.value) {
+                let xhr = new XMLHttpRequest();
+                // Use the dynamic country name entered in the input field
+                xhr.open('GET', `https://restcountries.com/v3.1/name/${cname.value}`, true);
+
+                xhr.send();
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        let result = JSON.parse(xhr.responseText); // Parse JSON response
+                        let [country] = result; // Destructure to get the first country object
+
+                        // Display country details
+                        eledata.innerHTML = `
+                        <h2>${country.name.common}</h2>
+                        <p><strong>Region:</strong> ${country.region}</p>
+                        <p><strong>Subregion:</strong> ${country.subregion}</p>
+                        <p><strong>Capital:</strong> ${country.capital[0]}</p>
+                        <img src="${country.flags.png}" alt="Flag of ${country.name.common}" style="width:200px; height:auto;">
+                    `;
+
+                        // Get neighboring countries
+                        if (country.borders && country.borders.length > 0) {
+                            fetchNeighbors(country.borders);
+                        } else {
+                            eledata.innerHTML += `<p>No neighboring countries found.</p>`;
+                        }
+                    } else {
+                        eledata.innerHTML = `<p>Invalid request: HTTP Status ${xhr.status}</p>`;
+                    }
+                };
+
+                // Handle the onprogress event
+                xhr.onprogress = function () {
+                    eledata.innerHTML = "<p>Loading country data...</p>";
+                };
+
+                // Handle network errors
+                xhr.onerror = function () {
+                    eledata.innerHTML = `<p>Error: Unable to fetch country data. Please check your connection.</p>`;
+                };
+            } else {
+                eledata.innerHTML = "<p>Please enter a country name.</p>";
+            }
+        }
+
+        // Function to fetch and display neighboring countries' information
+        function fetchNeighbors(neighborCodes) {
+            let neighborsHtml = '<div class="neighboring-countries"><strong>Neighboring Countries:</strong><ul>';
+
+            // Create a count for how many requests are sent
+            let totalRequests = neighborCodes.length;
+            let completedRequests = 0;
+
+            neighborCodes.forEach(code => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', `https://restcountries.com/v3.1/alpha/${code}`, true);
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        let neighbor = JSON.parse(xhr.responseText)[0];
+                        neighborsHtml += `<li>${neighbor.name.common}</li>`;
+
+                        // Increment the number of completed requests
+                        completedRequests++;
+
+                        // If all neighboring country data is fetched, update the DOM
+                        if (completedRequests === totalRequests) {
+                            neighborsHtml += '</ul></div>';
+                            eledata.innerHTML += neighborsHtml;
+                        }
+                    }
+                };
+
+                xhr.send();
+            });
+        }
+    </script>
+</body>
+
+</html>
